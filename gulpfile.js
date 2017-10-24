@@ -1,20 +1,21 @@
 'use strict';
 
-var gulp = require('gulp'),
-    watch = require('gulp-watch'),
-    prefixer = require('gulp-autoprefixer'),
-    less = require('gulp-less'),
-    uglify = require('gulp-uglify'),
-    sourcemaps = require('gulp-sourcemaps'),
-    rigger = require('gulp-rigger'),
-    cssmin = require('gulp-clean-css'),
-    imagemin = require('gulp-imagemin'),
-    spritesmith = require('gulp.spritesmith'),
-    pngquant = require('imagemin-pngquant'),
-    rimraf = require('rimraf'),
-    GulpSSH = require('gulp-ssh'),
+var gulp = require('gulp'),//
+    watch = require('gulp-watch'),//
+    prefixer = require('gulp-autoprefixer'),//
+    less = require('gulp-less'),//
+    uglify = require('gulp-uglify'),//
+    sourcemaps = require('gulp-sourcemaps'),//
+    rigger = require('gulp-rigger'),//
+    cssmin = require('gulp-clean-css'),//
+    imagemin = require('gulp-imagemin'),//
+    spritesmith = require('gulp.spritesmith'),//
+    rename = require('gulp-rename'),//
+    pngquant = require('imagemin-pngquant'),//
+    rimraf = require('rimraf'),//
+    GulpSSH = require('gulp-ssh'),//
     fs = require('fs'),
-    browserSync = require("browser-sync"),
+    browserSync = require("browser-sync"),//
     reload = browserSync.reload;
 
 var path = {
@@ -31,7 +32,7 @@ var path = {
     src: { //Пути откуда брать исходники
         html:   'src/*.html', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
         ajax:   'src/ajax/*.php',
-        js:     'src/js/main.js',//В стилях и скриптах нам понадобятся только main файлы
+        js:     'src/js/*.js',//В стилях и скриптах нам понадобятся только main файлы
         style:  'src/style/**/*.less',
         img:    'src/img/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
         tmp:    'src/tmp/**/*.*',
@@ -73,7 +74,9 @@ gulp.task('html:build', function () {
 gulp.task('js:build', function () {
     gulp.src(path.src.js) //Найдем наш main файл
         .pipe(rigger()) //Прогоним через rigger
+        .pipe(gulp.dest(path.build.js)) //выплевываем несжатые файлы
         .pipe(uglify()) //Сожмем наш js
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
         .pipe(reload({stream: true})); //И перезагрузим сервер
 });
@@ -198,7 +201,7 @@ gulp.task('sprite', [
 
 
 
-var config = { // данные для доступа к ssh
+var configSSH = { // данные для доступа к ssh
   host: '192.162.1.1',
   port: 22,
   username: 'username',
@@ -207,7 +210,7 @@ var config = { // данные для доступа к ssh
 
 var gulpSSH = new GulpSSH({
   ignoreErrors: false,
-  sshConfig: config
+  sshConfig: configSSH
 })
 
 gulp.task('dest', function () {

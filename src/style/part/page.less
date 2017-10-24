@@ -37,7 +37,7 @@ strong {
 	text-align: center;
 	margin: 20px 0;
 	img {
-		width: 80px;
+		width: 100px;
 		margin: 0 5px;
 	}
 }
@@ -46,9 +46,11 @@ strong {
 	word-spacing: -0.3em;
 	text-align: center;
 	margin-bottom: 30px;
+	overflow: hidden;
 	img {
-		display: inline-block;
-		height: 160px;
+		display: block;
+		height: 250px;
+		width: auto;
 	}
 }
 
@@ -66,11 +68,12 @@ strong {
 		border-collapse: collapse;
 	}
 	th {
-		
+		width: 33%;
 		border: 1px solid @color_text;
 		font-size: 25px;
 		color: @color_blue;
 		font-weight: 400;
+		text-transform: uppercase;
 	}
 
 	td {

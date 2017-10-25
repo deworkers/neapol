@@ -37,7 +37,7 @@ strong {
 	text-align: center;
 	margin: 20px 0;
 	img {
-		width: 100px;
+		width: 120px;
 		margin: 0 5px;
 	}
 }
@@ -141,4 +141,25 @@ strong {
 .check-list {
 	max-width: 800px;
 	margin: 30px auto;
+
+	list-style: none;
+
+	li {
+		position: relative;
+		margin: 20px 0;
+		padding-left: 50px;
+		font-size: 16px;
+		&:before {
+			content: "";
+			width: 35px;
+			height: 35px;
+			background-image: url(/img/check.png);
+			background-repeat: no-repeat;
+			background-size: contain;
+			position: absolute;
+			top: 50%;
+			margin-top: -17.5px;
+			left: 0;
+		}
+	}
 }

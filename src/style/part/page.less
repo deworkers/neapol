@@ -40,6 +40,7 @@ strong {
 		width: 120px;
 		margin: 0 5px;
 	}
+
 }
 
 .images {
@@ -162,4 +163,22 @@ strong {
 			left: 0;
 		}
 	}
+}
+
+@keyframes rotate {
+	from {
+		transform: rotateY(90deg);
+	} 
+	to {
+		transform: rotateY(0deg);
+	}
+}
+
+.scroll-hidden {
+	opacity: 0;
+}
+
+.rotate {
+	opacity: 1;
+	animation: rotate  1s ease-in-out;
 }

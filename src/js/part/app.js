@@ -1,12 +1,11 @@
 $(document).ready(function() {
-    var mySwiper = new Swiper('.images', {
-	    slidesPerView: 'auto',
-	    loop: true,
-	    centeredSlides: true,
-      	spaceBetween: 0,
-      	autoplay:  1,
-      	speed: 1500
-	});
+    
+    $('.images').bxSlider({
+	  speed: 50000,
+	  ticker: true,
+	  tickerHover: true,
+	  maxSlides: 10
+	 });
 
 	$('.scrollView, .scrollView2, .scrollView3').children().addClass('scroll-hidden');
 
@@ -29,7 +28,6 @@ $(document).ready(function() {
     scrollAnimate( $('.scrollView') );
 
 	$(window).on('scroll', function() {
-		console.log($('body, html').scrollTop());
 	    if ( $('body, html').scrollTop() > 1000 ) {
 	    	scrollAnimate( $('.scrollView2') );
 	    }

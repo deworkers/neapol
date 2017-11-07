@@ -8,4 +8,6 @@
 //= ../plugin/jquery.validate.min.js
 //= ../plugin/magnific-popup/jquery.magnific-popup.min.js
 
+//= ../plugin/bxslider/jquery.bxslider.js
+
 //= part/scroll.js

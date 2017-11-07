@@ -1,11 +1,11 @@
 @font-face {font-family:'Calibri';src:url('../fonts/calibri.ttf');}
 @font-face {font-family:'gothic';src:url('../fonts/gothic.ttf');}
-
+@font-face {font-family:'Ital';src:url('../fonts/GOTHICI.TTF');}
 //переменные
 @font: 'gothic', sans-serif;
 @font-title: 'gothic', serif;
 @font-alt: 'Trebuchet MS', serif;
-
+@font-i: 'Ital', sans-serif;
 
 
 @color_white: #fff;
@@ -21,9 +21,6 @@
     word-spacing: normal;
 }
 
-div {
-    position: relative;
-}
 
 html { 
     height: 100%; 
@@ -53,6 +50,10 @@ p {
     font-size: 14px;
     margin: 0 0 10px 0;
     line-height: 22px;
+}
+
+i {
+    font-family: @font-i;
 }
 
 a {

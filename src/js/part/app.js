@@ -1,13 +1,13 @@
-$(document).ready(function() {
+jQuery(document).ready(function() {
     
-    $('.images').bxSlider({
+    jQuery('.images').bxSlider({
 	  speed: 50000,
 	  ticker: true,
 	  tickerHover: true,
 	  maxSlides: 10
 	 });
 
-	$('.scrollView, .scrollView2, .scrollView3').children().addClass('scroll-hidden');
+	jQuery('.scrollView, .scrollView2, .scrollView3').children().addClass('scroll-hidden');
 
 
     var scrollAnimate = function(_this) {
@@ -25,15 +25,15 @@ $(document).ready(function() {
 	    }, 500);
     }
 
-    scrollAnimate( $('.scrollView') );
+    scrollAnimate( jQuery('.scrollView') );
 
-	$(window).on('scroll', function() {
-	    if ( $('body, html').scrollTop() > 1000 ) {
-	    	scrollAnimate( $('.scrollView2') );
+	jQuery(window).on('scroll', function() {
+	    if ( jQuery('body, html').scrollTop() > 1000 ) {
+	    	scrollAnimate( jQuery('.scrollView2') );
 	    }
 
-	    if ( $('body, html').scrollTop() > 2200 ) {
-	    	scrollAnimate( $('.scrollView3') );
+	    if ( jQuery('body, html').scrollTop() > 2200 ) {
+	    	scrollAnimate( jQuery('.scrollView3') );
 	    }
 	});
 
